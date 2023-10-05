@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/style.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	
+</head>
+<body>
+	{{#if ErrorMessage}}
+	<div class="alert alert-danger" >{{ ErrorMessage }}</div>
+	{{/if}}
+    <h2>Register</h2>
+	<div class="register-form">
+		
+	<form id="registerForm" method="POST" action="authentication" >
+	<div>
+		<label for="username">Username:</label>
+		<input id="username" type="text" name="username" value="" required>
+	</div>
+	<div>
+		<label for="password">Password:</label>
+		<input id="password" type="password" name="password" value="" required>
+	</div>
+	<div>
+		<button class="btn btn-info rounded btn-lg" type="submit" id="submitBtn">Register</button>
+	</div>
+	</form>
+	
+	</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+ <script>
+		 const playButton = document.querySelector('#submitBtn');
+		 const GetForm = document.querySelector('#registerForm');
+
+	
+
+    	playButton.addEventListener('click', function (event){
+        	console.log("checking form");
+        	event.preventDefault();
+			const UserNameInput = document.querySelector('#username').value;
+			const UserPasswordInput= document.querySelector('#password').value;
+
+			const CheckInput1 = [UserNameInput];
+			const CheckInput2 = [UserPasswordInput];
+
+			
+			const containsSpace1 = CheckInput1.map(input => input.includes(' ')).includes(true);
+			const containsSpace2 = CheckInput2.map(input => input.includes(' ')).includes(true);
+
+			const userNameLength = UserNameInput.split("").reduce((acc, curr) =>{
+				return acc += 1;
+			}, 0);
+
+			const CheckIfLongEnough = userNameLength >= 12;
+
+			//use this page for regexhttps://stackoverflow.com/questions/12090077/javascript-regular-expression-password-validation-having-special-characters
+        	const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{15,}$/;
+
+			let errorMessage = document.querySelector('.errorMessageP');
+	
+
+			if(containsSpace1 || containsSpace2){
+				if(errorMessage === null){
+					errorMessage = document.createElement('p');
+                	errorMessage.textContent = "please make sure that your username has: no spaces and is at least 12 character long and please make sure your password: has no spaces and contains least one capital letter, one special character, and one number";
+                	errorMessage.classList.add('errorMessageP');
+                	document.body.appendChild(errorMessage);
+				}
+				return;
+
+			}
+
+        	else if(!CheckIfLongEnough){
+				if(errorMessage === null){
+					errorMessage = document.createElement('p');
+                	errorMessage.textContent = "please make sure that your username has: no spaces and is at least 12 character long and please make sure your password: has no spaces and contains least one capital letter, one special character, and one number";
+                	errorMessage.classList.add('errorMessageP');
+                	document.body.appendChild(errorMessage);
+				}
+				return;
+			}
+
+			else if(UserPasswordInput.length < 15){
+				if(errorMessage === null){
+					errorMessage = document.createElement('p');
+                	errorMessage.textContent = "please make sure that your username has: no spaces and is at least 12 character long and please make sure your password: has no spaces and contains least one capital letter, one special character, and one number";
+                	errorMessage.classList.add('errorMessageP');
+                	document.body.appendChild(errorMessage);
+				}
+				return;
+			}	
+
+			else if (!passwordRegex.test(UserPasswordInput)) {
+				if(errorMessage === null){
+					errorMessage = document.createElement('p');
+                	errorMessage.textContent = "please make sure that your username has: no spaces and is at least 12 character long and please make sure your password: has no spaces and contains least one capital letter, one special character, and one number";
+                	errorMessage.classList.add('errorMessageP');
+                	document.body.appendChild(errorMessage);
+				}
+            	return;
+        	}
+
+			else{
+				GetForm.submit(); 
+				errorMessage = document.querySelector('.errorMessageP'); 
+                if (errorMessage !== null) { 
+                    errorMessage.parentNode.removeChild(errorMessage); 
+                }  
+
+			}
+				
+    	})
+	</script>
+</body>
+</html>

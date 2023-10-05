@@ -1,0 +1,221 @@
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/robotomono/v22/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_gPq_ROW4AJi8SJQt.woff2) format('woff2');
+}
+
+body{
+    background-color:ghostwhite;
+ 
+}
+
+p{
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+}
+header,nav{
+    background-color:steelblue;
+    padding: 1em;
+    
+}
+header{
+    height: 100%;
+}
+
+a{
+    font-size: 22px;
+}
+
+h1, a {
+    color: black;
+    font-family: 'Roboto Mono', monospace;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+a:hover{
+    opacity: 0.4;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-evenly
+    
+}
+h1{
+    font-size: 40px;
+}
+
+nav a {
+    color: #ffffff; 
+    text-decoration: none; 
+    padding: 10px;
+}
+
+h1, h2, h4{
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    padding: 10px;
+}
+
+h1, h2{
+    text-decoration: underline;
+}
+
+h2{
+    font-size: 34px;
+}
+
+
+.login-form{
+    display: block;
+     text-align: center;
+     font-size: 2em; 
+     font-family: 'Roboto Mono', monospace;
+    
+}
+
+input[type="text"],
+input[type="password"]
+{
+    font-size: .8em;
+}
+
+input[type="submit"]{
+    width: 150px;
+    height: 30px;
+}
+ 
+.login-form-div{
+    margin: 20px 0;
+    height: 30px;
+}
+
+.register-form{
+    display: block;
+    text-align: center;
+    font-size: 2em;
+    font-family: 'Roboto Mono', monospace;
+}
+
+input[type="email"]{
+    font-size: .8em;
+}
+.email-label{
+    margin-left: 56px;
+}
+
+.add-confession-form, .feedback-form{
+    display: block;
+    text-align: center;
+    font-size: 1.2em;
+    font-family: 'Roboto Mono', monospace;
+    align-items: center;
+}
+
+
+
+p{
+    font-size: 30px;
+}
+
+h3{
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    text-decoration: none;
+}
+
+.confession-box{
+    margin-left: 10px;
+    border-radius: 10px;
+   
+}
+
+.confession-format{
+    border: 1px solid black;
+    border-radius: 13px;
+    padding: 10px;
+    margin-bottom: 10px;
+   
+}
+
+.CommetBoxes{
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 6px;
+    
+}
+
+
+.add-comment-form{
+    display: block;
+    text-align: center;
+    font-size: 2em; 
+    font-family: 'Roboto Mono', monospace;
+}
+
+
+.Feedback-box{
+    margin-left: 10px;
+    border-radius: 10px;
+
+}
+
+.feedBack-format{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 12px;
+    
+}
+
+.RatingHead{
+    text-align: center;
+}
+
+.AddConfessUse, .feedbackInfo{
+    font-size: 20px;
+    
+}
+.postedOn, .CommentDate{
+    font-size: 18px;
+}
+
+
+a:link {
+    color: black;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color:darkcyan;
+    
+  }
+  
+  a:visited {
+    color:black;
+  }
+  
+  a:active {
+    color: gray;
+  }
+
+  section{
+    margin-top: 120px;
+  }
+
+.errorMessage{
+    color: #ff726f;
+}
+
+.errorMessageP{
+    color: #ff726f;
+}
+
+
+  
